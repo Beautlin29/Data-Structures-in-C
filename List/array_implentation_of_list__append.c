@@ -1,36 +1,32 @@
-#include <stdio.h> 
-#define MAX 1000 
+#include <stdio.h>
+#define MAX 1000
 
-int list[MAX], size = 0; 
+int list[MAX], size = 0;
 
 void append(int score)
-
-list[size++]= score;
+{
+    list[size++] = score;
+}
 
 int main()
 {
+    int N, counter;
+    int totalScore = 0, score, index;
 
-int N, counter; 
-int totalScore, score, index; 
+    scanf("%d", &N);
 
-scanf("%d", &N); 
+    for (counter = 0; counter < N; counter++)
+    {
+        scanf("%d", &score);
+        append(score);
+    }
 
-for (counter=1; counter< N; counter++)
-{
+    for (index = 0; index < size; index++)
+    {
+        totalScore += list[index];
+    }
 
-scanf("%d", &score);
+    printf("%d", totalScore);
 
-append(score);
-
-}
-
-for (index=0; index<size; index++)
-{
-
-totalScore + list[index];
-
-}
-
-printf("%d", totalScore);
-
+    return 0;
 }
