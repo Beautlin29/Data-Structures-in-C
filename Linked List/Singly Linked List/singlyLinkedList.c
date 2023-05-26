@@ -36,7 +36,7 @@ void main()
     printf("Do you want to continue(0,1): ");
     scanf("%d", &choice);
     }
-
+    
     temp = head;
     printf("Linked List: ");
     while (temp != 0)
