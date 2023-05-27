@@ -36,14 +36,6 @@ int size()
 
 void main()
 {
-   /* struct node
-    {
-       int data;
-       struct node *next;
-    };
-
-    struct node *head = 0, *newNode, *temp;
-    */
     int choice = 1, i = 1;
 
     while(choice)
