@@ -21,10 +21,9 @@ void display()
     }
 }
 
-int count = 0;
-
 int size()
 {
+    int count = 0;
     temp = head;
     while(temp != 0)
     {
