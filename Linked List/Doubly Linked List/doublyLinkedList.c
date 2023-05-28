@@ -9,7 +9,7 @@ struct node
        struct node *prev, *next;
     };
 
-struct node *head = NULL, *newNode, *temp;
+struct node *head = NULL, *newNode, *tail, *temp;
 
 void create()
 {
@@ -27,13 +27,14 @@ void create()
 
     if(head == NULL)
     {
-        head = temp = newNode;
+        head = tail = newNode;
     }
     else
     {
-        newNode->prev = temp->next;
-        temp->next = newNode;
-        temp = temp->next;
+
+        newNode->prev = tail->next;
+        tail->next = newNode;
+        tail = tail->next;
     }
 
     printf("Do you want to continue(0,1): ");
