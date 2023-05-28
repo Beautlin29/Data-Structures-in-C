@@ -9,7 +9,7 @@ struct  node
     struct node *next;
 };
 
-struct node *head = 0, *temp, *newNode, *prevNode;
+struct node *head = 0, *temp, *newNode, *prevNode, *nextNode;
 
 void display()
 {
@@ -21,10 +21,9 @@ void display()
     }
 }
 
-int count = 0;
-
 int size()
 {
+    int count = 0;
     temp = head;
     while(temp != 0)
     {
@@ -86,13 +85,35 @@ void main()
     }
     prevNode->next = NULL;
     free(temp);
-
     printf("\nLinked List after deletion at the end: ");
     display();
 
 //deletion at a given position
 
-    
+    printf("\nEnter the postion of the number to be deleted: ");
+    scanf("%d", &pos);
+
+    if(pos <= 0 || pos > size())
+    {
+        printf("Invalid position!");
+    }
+    else if(pos == 1)
+    {
+        printf("Dude... You just deleted the first node! Are you trying to start a revolution?");
+    }
+    else
+    {
+        i = 1;
+        temp = nextNode = head;
+        while(i < pos-1)
+        {
+            temp = temp->next;
+            i++;
+        }
+        nextNode = temp->next;
+        temp->next = nextNode->next;
+        free(nextNode);
+    }
 
     printf("\nLinked List after deletion at the given position: ");
     display();  
