@@ -33,8 +33,7 @@ void create()
     }
     else
     {
-
-        newNode->prev = tail->next;
+        newNode->prev = tail;
         tail->next = newNode;
         tail = tail->next;
     }
@@ -56,6 +55,18 @@ int size()
         count++;
     } 
     return count;
+}
+
+//display the contents
+
+void display()
+{
+    temp = head;
+    while (temp != 0)
+    {
+        printf("%d ", temp->data);
+        temp = temp->next;
+    }   
 }
 
 //insertion at the beginning
@@ -124,18 +135,6 @@ void insertAtPos()
         newNode->prev = temp;
         newNode->next->prev = newNode;
         } 
-}
-
-//display the contents
-
-void display()
-{
-    temp = head;
-    while (temp != 0)
-    {
-        printf("%d ", temp->data);
-        temp = temp->next;
-    }   
 }
 
 void main()

@@ -31,8 +31,7 @@ void create()
     }
     else
     {
-
-        newNode->prev = tail->next;
+        newNode->prev = tail;
         tail->next = newNode;
         tail = tail->next;
     }
