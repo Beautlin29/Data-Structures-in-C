@@ -1,4 +1,4 @@
-// implementation of queve using array
+// implementation of queue using array
 
 #include <stdio.h>
 #include <stdlib.h>

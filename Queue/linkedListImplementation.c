@@ -1,4 +1,4 @@
-// implementation of queve using linked list
+// implementation of queue using linked list
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,9 +9,9 @@ struct node
     struct node *next;
 } *front, *rear, *temp, *newNode;
 
-// enqueve an element
+// enqueue an element
 
-void enqueve(int num)
+void enqueue(int num)
 {
     newNode = (struct node*)malloc(sizeof(struct node));
     newNode->data = num;
@@ -28,19 +28,19 @@ void enqueve(int num)
     }
 }
 
-// dequeve the first element
+// dequeue the first element
 
-void dequeve()
+void dequeue()
 {
     if(front == 0 && rear == 0)
     {
-        printf("\nQueve is empty! Nothing to dequeve!!");
+        printf("\nQueue is empty! Nothing to dequeue!!");
     }
     else
     {
         temp = front;
         front = front->next;
-        printf("\nDequeved element: %d", temp->data);
+        printf("\nDequeued element: %d", temp->data);
         free(temp);
     }
 }
@@ -51,7 +51,7 @@ void peek()
 {
     if(front == 0 && rear == 0)
     {
-        printf("\nQueve is empty! Nothing to peek!!");
+        printf("\nQueue is empty! Nothing to peek!!");
     }
     else
     {
@@ -59,18 +59,18 @@ void peek()
     }
 }
 
-// display the queve
+// display the queue
 
 void display()
 {
     if(front == 0 && rear == 0)
     {
-        printf("Queve is empty!");
+        printf("Queue is empty!");
     }
     else
     {
         temp = front;
-        printf("\nElements in the queve are: ");
+        printf("\nElements in the queue are: ");
         while(temp != 0)
         {
             printf("%d ", temp->data);
@@ -85,7 +85,7 @@ void main()
 
     do
     {
-        printf("\n0.Exit\n1.Enqueve\n2.Dequeve\n3.Peek\n4.Display\nEnter choice: ");
+        printf("\n0.Exit\n1.Enqueue\n2.Dequeue\n3.Peek\n4.Display\nEnter choice: ");
         scanf("%d", &choice);
         switch (choice)
         {
@@ -96,11 +96,11 @@ void main()
         case 1:
             printf("Enter the number: ");
             scanf("%d", &num);
-            enqueve(num);
+            enqueue(num);
             break;
 
         case 2:
-            dequeve();
+            dequeue();
             break;
 
         case 3:
