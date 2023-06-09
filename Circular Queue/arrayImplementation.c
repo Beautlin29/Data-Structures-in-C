@@ -1,4 +1,4 @@
-// implementation of circular queve using array
+// implementation of circular queue using array
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,17 +13,18 @@ int rear = -1;
 
 void enqueue(int num) 
 {
-    if (rear == N - 1)
+    if(front == -1 && rear == -1)
+    {
+        front = rear = 0;
+        queue[rear] = num;
+    }
+    else if ((rear+1)%N == front)
     {
         printf("\nOverflow!");
     } 
     else 
     {
-        if (front == -1) 
-        {
-            front = 0;
-        }
-        rear++;
+        rear = (rear+1) % N;
         queue[rear] = num;
         printf("\nEnqueued element: %d", num);
     }
@@ -33,18 +34,19 @@ void enqueue(int num)
 
 void dequeue() 
 {
-    if (front == -1 || front > rear) 
+    if (front == -1 && rear == -1) 
     {
-        printf("\nUnderflow!");
+        printf("\nQueue is empty!");
     } 
+    else if(front == rear)
+    {
+        printf("\nDequeued element: %d", queue[front]);
+        front = rear = -1;
+    }
     else 
     {
         printf("\nDequeued element: %d", queue[front]);
-        front++;
-        if (front > rear) 
-        {
-            front = rear = -1;
-        }
+        front = (front+1) % N;       
     }
 }
 
@@ -52,9 +54,9 @@ void dequeue()
 
 void peek() 
 {
-    if (front == -1 || front > rear) 
+    if (front == -1 && rear == -1) 
     {
-        printf("\nUnderflow!");
+        printf("\nNothing to see! Queue is empty!!");
     } 
     else 
     {
@@ -64,22 +66,25 @@ void peek()
 
 // display the queue
 
-void display() {
-    if (front == -1 || front > rear)
+void display() 
+{
+    if (front == -1 && rear == -1)
     {
         printf("\nQueue is empty!");
     } 
     else 
     {
         printf("\nElements in the queue are: ");
-        for (int i = front; i <= rear; i++) 
+        for (int i = front; i != rear; i=(i+1)%N) 
         {
             printf("%d ", queue[i]);
         }
+        printf("%d ", queue[rear]);
     }
 }
 
-void main() {
+void main() 
+{
     int choice, num;
 
     do {
