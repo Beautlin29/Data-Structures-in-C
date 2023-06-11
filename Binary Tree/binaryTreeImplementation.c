@@ -9,6 +9,9 @@ struct node
     struct node *left, *right;
 } *root = NULL, *newNode;
 
+
+// creating binary tree
+
 struct node *create()
 {
     int num;
