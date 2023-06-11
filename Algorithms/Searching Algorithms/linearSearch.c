@@ -2,7 +2,7 @@
 
 #define N 10
 
-void linearSearch(int array[],int data)
+void linearSearch(int array[], int data)
 {
     int found = 0;
 
