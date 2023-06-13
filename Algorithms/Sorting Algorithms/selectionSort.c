@@ -1,9 +1,18 @@
-// implementation of selection sort
+// implementation of selection sort algorithm
 
 #include <stdio.h>
 #include <stdlib.h>
 
 #define N 10
+
+// swap 
+
+void swap(int *a, int *b) 
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
 
 void main()
 {
@@ -29,13 +38,10 @@ void main()
             }
             if(min != i)
             {
-                int temp = array[i];
-                array[i] = array[min];
-                array[min] = temp;
+                swap(&array[i], &array[min]);
             }
         }
     }
-
 
     printf("\nSorted array: ");
     for(int i = 0; i < N; i++)

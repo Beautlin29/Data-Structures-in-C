@@ -1,3 +1,5 @@
+// implementation of quick sort algorithm
+
 #include <stdio.h>
 #include <stdlib.h>
 
