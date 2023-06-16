@@ -1,3 +1,5 @@
+// implementation of count sort algorithm
+
 #include <stdio.h>
 #include <stdlib.h>
 
